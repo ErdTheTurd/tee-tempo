@@ -1,0 +1,527 @@
+/* Tee Tempo marketing site — dark green & gold from the watch app. */
+
+:root {
+  --bg: #0b1610;
+  --bg-alt: #0f1c14;
+  --card: #13211a;
+  --line: rgba(255, 255, 255, 0.09);
+  --text: #f1f4f1;
+  --muted: #a8b5ab;
+  --accent: #2e9e4a;
+  --accent-bright: #51c76b;
+  --gold: #d4af56;
+  --gold-soft: rgba(212, 175, 86, 0.18);
+  --max: 1080px;
+  --pad: clamp(1.2rem, 4vw, 2rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background:
+    radial-gradient(ellipse 90% 55% at 15% -10%, rgba(46, 158, 74, 0.18), transparent 55%),
+    radial-gradient(ellipse 70% 45% at 90% 10%, rgba(212, 175, 86, 0.08), transparent 50%),
+    var(--bg);
+  font: 18px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+figure {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+a {
+  color: var(--gold);
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  color: #e6c978;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+}
+
+.skip:focus {
+  left: var(--pad);
+  top: 0.75rem;
+  z-index: 100;
+  background: var(--card);
+  color: var(--text);
+  padding: 0.5rem 0.75rem;
+}
+
+.wrap {
+  width: min(100% - 2 * var(--pad), var(--max));
+  margin-inline: auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(14px);
+  background: rgba(11, 22, 16, 0.82);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: min(100% - 2 * var(--pad), var(--max));
+  margin-inline: auto;
+  padding: 0.85rem 0;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.brand img {
+  border-radius: 9px;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+}
+
+.hero {
+  padding: clamp(2.5rem, 7vw, 5rem) 0 clamp(2rem, 5vw, 3.5rem);
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(1.5rem, 5vw, 3.5rem);
+  align-items: center;
+  width: min(100% - 2 * var(--pad), var(--max));
+  margin-inline: auto;
+}
+
+.hero-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.hero-brand img {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-weight: 750;
+}
+
+.lede {
+  margin: 1rem 0 0;
+  font-size: clamp(1.15rem, 2.4vw, 1.35rem);
+  color: var(--gold);
+  font-weight: 550;
+  max-width: 28ch;
+}
+
+.hero-support {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  max-width: 36ch;
+}
+
+.hero-cta {
+  margin-top: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.as-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.65rem 1rem 0.65rem 0.85rem;
+  border-radius: 12px;
+  background: #0a0a0a;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #fff;
+  text-decoration: none;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.as-badge:hover {
+  color: #fff;
+  border-color: var(--gold);
+  transform: translateY(-1px);
+}
+
+.as-badge svg {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.as-badge small {
+  display: block;
+  font-size: 0.68rem;
+  line-height: 1.1;
+  opacity: 0.85;
+}
+
+.as-badge strong {
+  display: block;
+  font-size: 1.15rem;
+  line-height: 1.15;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.soon {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+/* Apple Watch CSS frame */
+.watch {
+  --watch-w: min(100%, 280px);
+  width: var(--watch-w);
+  margin-inline: auto;
+  position: relative;
+}
+
+.watch-bezel {
+  background: linear-gradient(160deg, #1c2a22 0%, #0d1511 55%, #162019 100%);
+  border: 2px solid rgba(212, 175, 86, 0.35);
+  border-radius: 52px;
+  padding: 14px;
+  box-shadow:
+    0 24px 50px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.watch-screen {
+  display: block;
+  width: 100%;
+  aspect-ratio: 416 / 496;
+  object-fit: cover;
+  border-radius: 38px;
+  background: #000;
+}
+
+.watch-crown {
+  position: absolute;
+  right: -10px;
+  top: 28%;
+  width: 10px;
+  height: 42px;
+  border-radius: 0 4px 4px 0;
+  background: linear-gradient(90deg, #3a4a3e, #6a7a6c);
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.35);
+}
+
+.watch-button {
+  position: absolute;
+  right: -8px;
+  top: 48%;
+  width: 7px;
+  height: 28px;
+  border-radius: 0 3px 3px 0;
+  background: #4a5a4e;
+}
+
+.watch-label {
+  margin-top: 0.85rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.features {
+  padding: clamp(2rem, 6vw, 4rem) 0;
+}
+
+.feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+  padding: clamp(2rem, 5vw, 3.25rem) 0;
+  border-top: 1px solid var(--line);
+}
+
+.feature:nth-child(even) .copy {
+  order: 2;
+}
+
+.feature:nth-child(even) .media {
+  order: 1;
+}
+
+.kicker {
+  margin: 0 0 0.4rem;
+  color: var(--gold);
+  font-size: 0.82rem;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.feature h2,
+.page h1,
+.page h2 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.55rem, 3.2vw, 2rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.feature p,
+.page p,
+.page li {
+  color: var(--muted);
+}
+
+.feature p:last-child,
+.page p:last-child {
+  margin-bottom: 0;
+}
+
+.presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+.preset {
+  padding: 0.4rem 0.7rem;
+  border-radius: 8px;
+  background: var(--gold-soft);
+  border: 1px solid rgba(212, 175, 86, 0.28);
+  color: var(--text);
+  font-size: 0.88rem;
+}
+
+.preset strong {
+  color: var(--gold);
+  font-weight: 650;
+}
+
+.cta-band {
+  padding: clamp(2.5rem, 6vw, 4rem) 0;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+
+.cta-band h2 {
+  margin: 0 0 0.6rem;
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
+  letter-spacing: -0.02em;
+}
+
+.cta-band p {
+  margin: 0 auto 1.25rem;
+  color: var(--muted);
+  max-width: 40ch;
+}
+
+.cta-band .hero-cta {
+  align-items: center;
+}
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 1.75rem 0 2.5rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem 1.25rem;
+}
+
+.footer-links a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: var(--text);
+}
+
+/* Inner pages */
+.page {
+  padding: clamp(2rem, 5vw, 3.5rem) 0 clamp(3rem, 7vw, 5rem);
+}
+
+.page-narrow {
+  width: min(100% - 2 * var(--pad), 720px);
+  margin-inline: auto;
+}
+
+.page h1 {
+  margin-bottom: 0.35rem;
+}
+
+.page .lede {
+  max-width: none;
+  margin-bottom: 1.75rem;
+}
+
+.page h2 {
+  margin-top: 2rem;
+}
+
+.page ul {
+  padding-left: 1.2rem;
+}
+
+.page li + li {
+  margin-top: 0.4rem;
+}
+
+.faq details {
+  border-top: 1px solid var(--line);
+  padding: 0.9rem 0;
+}
+
+.faq details:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text);
+  list-style: none;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: "+";
+  float: right;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.faq details[open] summary::after {
+  content: "–";
+}
+
+.faq details p {
+  margin: 0.65rem 0 0.2rem;
+}
+
+@media (max-width: 820px) {
+  .hero-inner,
+  .feature {
+    grid-template-columns: 1fr;
+  }
+
+  .feature:nth-child(even) .copy,
+  .feature:nth-child(even) .media {
+    order: initial;
+  }
+
+  .hero-inner {
+    text-align: left;
+  }
+
+  .watch {
+    --watch-w: min(100%, 240px);
+  }
+}
+
+@media (max-width: 520px) {
+  .nav-links {
+    gap: 0.3rem 0.85rem;
+  }
+
+  .hero-brand img {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+  }
+}
